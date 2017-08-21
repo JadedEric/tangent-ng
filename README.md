@@ -1,2 +1,2 @@
 # tangent-ng
-Tangent Angular test
+AngularJS test designed by Tangent Solutions as part of the Front-end interview process
