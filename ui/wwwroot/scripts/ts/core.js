@@ -1,10 +1,25 @@
-/// <reference path="../../../node_modules/@types/jquery/index.d.ts" />
-/// <reference path="../../../node_modules/@types/angular/index.d.ts" />
+/// <reference path="../../node_modules/@types/jquery/index.d.ts" />
+/// <reference path="../../node_modules/@types/angular/index.d.ts" />
 var tangent;
 (function (tangent) {
     var test;
     (function (test) {
-        "use strict";
-        test.TangentApp = angular.module("TangentApp");
+        var core;
+        (function (core) {
+            "use strict";
+            core.TangentApp = angular.module("TangentApp", []);
+            core.CompileProvider = null;
+            core.EnvironmentService = null;
+            core.TangentApp.config(function ($compileProvider, $controllerProvider) {
+                $controllerProvider.allowGlobals();
+                core.CompileProvider = $compileProvider;
+            });
+            core.TangentApp.service("DataService", ["$http", "$templateRequest", tangent.test.services.DataService]);
+            core.TangentApp.service(tangent.test.services.EnvironmentService.SERVICENAME, ["DataService", tangent.test.services.EnvironmentService]);
+            // controller registration
+            core.TangentApp.controller(tangent.test.controllers.HomeController.CONTROLLERNAME, tangent.test.controllers.HomeController);
+            // bootstrap
+            angular.bootstrap(document, ["TangentApp"]);
+        })(core = test.core || (test.core = {}));
     })(test = tangent.test || (tangent.test = {}));
 })(tangent || (tangent = {}));
