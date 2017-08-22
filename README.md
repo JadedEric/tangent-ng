@@ -47,7 +47,7 @@ Run the site in your browser, with the bindings created previously.
 
 Clone the repo. Then in terminal, browse to the **ui/wwwroot/** directory, then using python's simple HTTP server, to create a binding to the location:
 
-```{ python -m SimpleHTTPServer 8000 }```
+```python -m SimpleHTTPServer 8000```
 
 # Unit Testing
 
