@@ -1,0 +1,90 @@
+<div data-ng-controller="tangent.test.controllers.DashboardController as dc">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-title">
+            <div class="pull-left">
+                <h1 class="title" data-ng-bind="dc.scope.pagetitle"></h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-lg-12">
+        <section class="box nobox">
+            <div class="content-body">
+                <div class="row">
+
+                        <div class="col-md-3 col-sm-5 col-xs-12">
+                                <div class="r4_counter db_box">
+                                    <i class="pull-left fa fa-thumbs-up icon-md icon-rounded icon-primary"></i>
+                                    <div class="stats">
+                                        <h4 data-ng-bind="dc.scope.employeecount"></h4>
+                                        <span>Employees</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-3 col-sm-5 col-xs-12">
+                                <div class="r4_counter db_box">
+                                    <i class="pull-left fa fa-male icon-md icon-rounded icon-primary"></i>
+                                    <div class="stats">
+                                        <h4 data-ng-bind="dc.scope.maleemployees"></h4>
+                                        <span>Males working at Tangent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-3 col-sm-5 col-xs-12">
+                                <div class="r4_counter db_box">
+                                    <i class="pull-left fa fa-female icon-md icon-rounded icon-primary"></i>
+                                    <div class="stats">
+                                        <h4 data-ng-bind="dc.scope.femaleemployees"></h4>
+                                        <span>Females working at Tangent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-3 col-sm-5 col-xs-12">
+                                <div class="r4_counter db_box">
+                                    <i class="pull-left fa fa-calendar icon-md icon-rounded icon-primary"></i>
+                                    <div class="stats">
+                                        <h4 data-ng-bind="dc.scope.employeeslongevity"></h4>
+                                        <span>Worked more than 5 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                <div class="r3_notification db_box">
+                                    <h4>Upcoming Birthdays</h4>
+                                    <ul class="list-unstyled notification-widget">
+                                        <li data-ng-repeat="birthday in dc.scope.birthdays track by birthday.id" class="status-available">
+                                            <a href="javascript:void(0);">
+                                                <div>
+                                                    <span class="name">
+                                                        <strong data-ng-bind="birthday.user.first_name"></strong>&nbsp;<strong data-ng-bind="birthday.user.last_name"></strong>
+                                                        <span class="time small" data-ng-bind="birthday.user.days_to_birthday"></span>
+                                                    </span>
+                                                    <span class="desc small">
+                                                        <strong>Level:</strong> <span data-ng-bind="birthday.position.level"></span>
+                                                        <div class="clearfix"></div>
+                                                        <strong>Age:</strong> <span data-ng-bind="birthday.age"></span>
+                                                        <div class="clearfix"></div>
+                                                        <strong>Email:</strong> <span data-ng-bind="birthday.email"></span>
+                                                        <div class="clearfix"></div>
+                                                        <strong>Birthday:</strong> <span data-ng-bind="birthday.birth_date"></span> - <strong>in <span data-ng-bind="birthday.days_to_birthday"></span> day(s)</strong>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

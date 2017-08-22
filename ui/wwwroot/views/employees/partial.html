@@ -1,0 +1,83 @@
+<div data-ng-controller="tangent.test.controllers.EmployeeController as ec">
+    
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="page-title">
+                <div class="pull-left">
+                    <h1 class="title" data-ng-bind="ec.scope.pagetitle"></h1>
+                </div>
+            </div>
+        </div>
+    
+        <div class="clearfix"></div>
+    
+        <div class="col-lg-12">
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title pull-left">Our Employees List</h2>
+                    <div class="actions panel_actions pull-right"></div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Email</th>
+                                        <th>Age</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="employee in ec.scope.employees track by $index" data-ng-click="ec.scope.view_employee($index)">
+                                        <th scope="row" data-ng-bind="$index + 1"></th>
+                                        <td><span data-ng-bind="employee.user.first_name"></span> <span data-ng-bind="employee.user.last_name"></span></td>
+                                        <td data-ng-bind="ec.scope.gender(employee.gender)"></td>
+                                        <td data-ng-bind="employee.email"></td>
+                                        <td data-ng-bind="employee.age"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="employee_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="employeemodal" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog animated fadeInDown">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h4 class="modal-title" data-ng-bind="ec.scope.modal.title"></h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Name:</strong> <span data-ng-bind="ec.scope.modal.fullname"></span>
+                                <div class="clearfix"></div>
+                                <strong>Email Address:</strong> <span data-ng-bind="ec.scope.modal.email"></span>
+                                <div class="clearfix"></div>
+                                <strong>Phone Number:</strong> <span data-ng-bind="ec.scope.modal.phonenumber"></span>
+                            </div>                        
+                            
+                            <div class="col-md-6">
+                                <strong>Age:</strong> <span data-ng-bind="ec.scope.modal.age"></span>
+                                <div class="clearfix"></div>
+                                <strong>Position:</strong> <span data-ng-bind="ec.scope.modal.position"></span>
+                                <div class="clearfix"></div>
+                                <strong>Birthday:</strong> <span data-ng-bind="ec.scope.modal.birthday"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>

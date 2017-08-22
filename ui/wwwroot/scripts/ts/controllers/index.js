@@ -12,11 +12,20 @@ var tangent;
                     this.element = $element;
                     this.environment = environmentService;
                     this.homeController = angular.element("body").controller();
+                    this.scope.version = 2.1;
                     this.on_show();
                     this.pull_user();
+                    this.scope.$watch("template", function (newValue, oldValue) {
+                        if (newValue !== oldValue) {
+                            $scope.template = newValue;
+                        }
+                    });
+                    this.scope.load_template = this.load_template.bind(this);
                 }
                 IndexController.prototype.on_show = function () {
                     angular.element(".page-topbar li.profile").addClass("showopacity");
+                    this.scope.pagetitle = "Dashboard";
+                    this.scope.template = "views/dashboard/partial.html";
                 };
                 IndexController.prototype.pull_user = function () {
                     var url = "http://staging.tangent.tngnt.co/api/user/me/";
@@ -25,9 +34,13 @@ var tangent;
                 IndexController.prototype.pull_callback = function (d, e) {
                     if (d) {
                         tangent.test.core.Me = d;
-                        this.scope.fullname = d.first_name + " " + d.last_name;
+                        this.scope.user = d;
+                        this.scope.user.fullname = d.first_name + " " + d.last_name;
                         this.scope.$digest();
                     }
+                };
+                IndexController.prototype.load_template = function (name) {
+                    this.scope.template = name;
                 };
                 IndexController.$inject = ["$scope", "$rootScope", "$element", tangent.test.services.EnvironmentService.SERVICENAME];
                 IndexController.CONTROLLERNAME = "IndexController";

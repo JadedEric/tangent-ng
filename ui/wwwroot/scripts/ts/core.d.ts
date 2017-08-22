@@ -10,4 +10,5 @@ declare namespace tangent.test.core {
     let CompileProvider: angular.ICompileProvider;
     let EnvironmentService: tangent.test.services.EnvironmentService;
     let Me: tangent.test.controllers.iuserobject;
+    let Employees: Array<tangent.test.controllers.iemployeeobject>;
 }

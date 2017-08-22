@@ -13,6 +13,7 @@ namespace tangent.test.core {
     export let CompileProvider: angular.ICompileProvider = null;
     export let EnvironmentService: tangent.test.services.EnvironmentService = null;
     export let Me: tangent.test.controllers.iuserobject = null;
+    export let Employees: Array<tangent.test.controllers.iemployeeobject> = null;
     
     TangentApp.config(($compileProvider: angular.ICompileProvider, $controllerProvider: angular.IControllerProvider) => {
         $controllerProvider.allowGlobals();
@@ -25,6 +26,8 @@ namespace tangent.test.core {
     // controller registration
     TangentApp.controller(tangent.test.controllers.HomeController.CONTROLLERNAME, tangent.test.controllers.HomeController);
     TangentApp.controller(tangent.test.controllers.LoginController.CONTROLLERNAME, tangent.test.controllers.LoginController);
+    TangentApp.controller(tangent.test.controllers.DashboardController.CONTROLLERNAME, tangent.test.controllers.DashboardController);
+    TangentApp.controller(tangent.test.controllers.EmployeeController.CONTROLLERNAME, tangent.test.controllers.EmployeeController);
     TangentApp.controller(tangent.test.controllers.IndexController.CONTROLLERNAME, tangent.test.controllers.IndexController);
 
     // bootstrap

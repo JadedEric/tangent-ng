@@ -12,7 +12,7 @@
                     <li class="profile">
                         <a href="javascript:void(0);" data-toggle="dropdown" class="toggle">
                             <img src="images/profile.png" alt="Profile" class="img-circle img-inline" />
-                            <span><span data-ng-bind="ic.scope.fullname"></span> <i class="fa fa-angle-down"></i></span>
+                            <span><span data-ng-bind="ic.scope.user.fullname"></span> <i class="fa fa-angle-down"></i></span>
                         </a>
                         <ul class="dropdown-menu profile animated fadeIn">
                             <li>
@@ -26,5 +26,21 @@
                 </ul>
             </div>
         </div>
+    </div>
+
+    <div class="page-container row-fluid">
+
+        <div data-ng-include="'views/sidebar/partial.html'"></div>
+
+        <section id="main-content">
+            
+            <section class="wrapper main-wrapper">
+
+                <div data-ng-include="ic.scope.template"></div>
+
+            </section>
+
+        </section>
+
     </div>
 </div>
