@@ -26,3 +26,17 @@ On the dashboard, it is expected to see widgets showing the amount of employees 
 It should also be easy to find employees.
 
 Lastly, a logged in user should be able to view their full profile.
+
+# Design Considerations
+
+The original requirements was to use **webpack** to boilerplate the AngularJS application, however, I decided to scaffold the application manually by hand, in order to build the UI out the way I had been invisioning in my head.
+
+As part of the original requirements, using ES6, I also decided to build the application out using TypeScript, a superset of JavaScript, as this is something I am extremely familiar with. It also allows for some interesting development using AngularJS.
+
+# Unit Testing
+
+Originally I wanted to implement Jasmine unit tests, but I ran out of time. I will continue working on the library over the next couple of days, including the Jasmine tests as I go.
+
+# License
+
+MIT
