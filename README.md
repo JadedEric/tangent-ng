@@ -33,6 +33,22 @@ The original requirements was to use **webpack** to boilerplate the AngularJS ap
 
 As part of the original requirements, using ES6, I also decided to build the application out using TypeScript, a superset of JavaScript, as this is something I am extremely familiar with. It also allows for some interesting development using AngularJS.
 
+# How to run
+
+> Windows
+
+If you're on a Windows environment, clone the repo down and attach the site to a new web application pool, editing the bindings to represent something like **test.angularjs.com**.
+
+Edit your hosts file, to represent the bindings created in IIS, and attach this to the current IP address.
+
+Run the site in your browser, with the bindings created previously.
+
+> Mac OSx
+
+Clone the repo. Then in terminal, browse to the **ui/wwwroot/** directory, then using python's simple HTTP server, to create a binding to the location:
+
+```{ python -m SimpleHTTPServer 8000 }```
+
 # Unit Testing
 
 Originally I wanted to implement Jasmine unit tests, but I ran out of time. I will continue working on the library over the next couple of days, including the Jasmine tests as I go.
