@@ -24,6 +24,7 @@ var tangent;
                 };
                 IndexController.prototype.pull_callback = function (d, e) {
                     if (d) {
+                        tangent.test.core.Me = d;
                         this.scope.fullname = d.first_name + " " + d.last_name;
                         this.scope.$digest();
                     }

@@ -10,6 +10,7 @@ var tangent;
             core.TangentApp = angular.module("TangentApp", []);
             core.CompileProvider = null;
             core.EnvironmentService = null;
+            core.Me = null;
             core.TangentApp.config(function ($compileProvider, $controllerProvider) {
                 $controllerProvider.allowGlobals();
                 core.CompileProvider = $compileProvider;

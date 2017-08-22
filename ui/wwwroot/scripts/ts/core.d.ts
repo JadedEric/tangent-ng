@@ -9,4 +9,5 @@ declare namespace tangent.test.core {
     let Authentication: string;
     let CompileProvider: angular.ICompileProvider;
     let EnvironmentService: tangent.test.services.EnvironmentService;
+    let Me: tangent.test.controllers.iuserobject;
 }
