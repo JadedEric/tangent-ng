@@ -2,6 +2,9 @@
 /// <reference path="../../node_modules/@types/angular/index.d.ts" />
 /// <reference types="angular" />
 declare namespace tangent.test.core {
+    interface itokenobject {
+        token: string;
+    }
     let TangentApp: angular.IModule;
     let Authentication: string;
     let CompileProvider: angular.ICompileProvider;

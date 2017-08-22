@@ -27,15 +27,29 @@ namespace tangent.test.services {
         /**
          * performs a standard GET request on a given URL
          */
-        public get(url: string, params: any, callback: Function, cache: boolean, progress: Function): void {
-            jQuery.get(url, params).done(()=> {
-                callback;
-            });
+        public get(url: string, token: string, callback: Function, cache: boolean, progress: Function): void {
+            jQuery.ajax({
+                type: "GET",
+                url: url,
+                beforeSend: (xhr) => {
+                    xhr.setRequestHeader("Authorization", "Token " + token);
+                },
+                async: true,
+                crossDomain: true
+            }).done((d: any, e: any) => {
+                callback(d, e);
+            })
         }
 
         public post(url: string, params: any, callback: Function, cache: boolean, progress: Function): void {
-            jQuery.post(url, params).done(()=> {
-                callback;
+            jQuery.ajax({
+                type: "POST",
+                url: url,
+                data: params,
+                async: true,
+                crossDomain: true
+            }).done((d: any, e: any)=> {
+                callback(d, e);
             });
         }
 

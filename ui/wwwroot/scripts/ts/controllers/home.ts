@@ -1,8 +1,10 @@
 namespace tangent.test.controllers {
     "use strict";
 
-    export interface ihomescope {
+    export interface ihomescope extends angular.IScope {
         login_user(): void;
+        template: string;
+        class: string;
     }
 
     export class HomeController {
@@ -21,46 +23,20 @@ namespace tangent.test.controllers {
             this.environment = environmentService;
 
             this.is_authenticated();
-
-            this.scope.login_user = this.login.bind(this);
         }
 
         /**
          * determines if the current session has been successfully authenticated
          */
-        private is_authenticated(): void {
-            if (tangent.test.core.Authentication) {
-                angular.element("#login").addClass("hide");
-                angular.element("#app_layer").removeClass("hide");
+        public is_authenticated(): void {
+            if (!tangent.test.core.Authentication) {
+                this.scope.template = "views/login/partial.html";
+                this.scope.class = "login_page";
             }
             else {
-                angular.element("#login").removeClass("hide");
-                angular.element("#app_layer").addClass("hide");
+                this.scope.template = "views/home/partial.html";
+                this.scope.class = "";
             }
-        }
-
-        private login(): void {
-            let authentication_url: string = "http://staging.tangent.tngnt.co/api-token-auth",
-                params: any = {
-                    username: angular.element("#username").val(),
-                    password: angular.element("#password").val()
-                };
-                
-            tangent.test.core.EnvironmentService.DataService.post(authentication_url, 
-                params, 
-                this.authentication_callback, 
-                false, 
-                this.authentication_progress);
-        }
-
-        private authentication_callback(data: any, error: any): void {
-            tangent.test.core.Authentication = "Hello";
-            this.is_authenticated();
-            debugger;
-        }
-
-        private authentication_progress(e): void {
-            debugger;
         }
     }
 }

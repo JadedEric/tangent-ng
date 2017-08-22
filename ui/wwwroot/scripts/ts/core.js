@@ -18,6 +18,8 @@ var tangent;
             core.TangentApp.service(tangent.test.services.EnvironmentService.SERVICENAME, ["DataService", tangent.test.services.EnvironmentService]);
             // controller registration
             core.TangentApp.controller(tangent.test.controllers.HomeController.CONTROLLERNAME, tangent.test.controllers.HomeController);
+            core.TangentApp.controller(tangent.test.controllers.LoginController.CONTROLLERNAME, tangent.test.controllers.LoginController);
+            core.TangentApp.controller(tangent.test.controllers.IndexController.CONTROLLERNAME, tangent.test.controllers.IndexController);
             // bootstrap
             angular.bootstrap(document, ["TangentApp"]);
         })(core = test.core || (test.core = {}));

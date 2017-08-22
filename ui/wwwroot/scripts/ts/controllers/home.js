@@ -12,35 +12,19 @@ var tangent;
                     this.element = $element;
                     this.environment = environmentService;
                     this.is_authenticated();
-                    this.scope.login_user = this.login.bind(this);
                 }
                 /**
                  * determines if the current session has been successfully authenticated
                  */
                 HomeController.prototype.is_authenticated = function () {
-                    if (tangent.test.core.Authentication) {
-                        angular.element("#login").addClass("hide");
-                        angular.element("#app_layer").removeClass("hide");
+                    if (!tangent.test.core.Authentication) {
+                        this.scope.template = "views/login/partial.html";
+                        this.scope.class = "login_page";
                     }
                     else {
-                        angular.element("#login").removeClass("hide");
-                        angular.element("#app_layer").addClass("hide");
+                        this.scope.template = "views/home/partial.html";
+                        this.scope.class = "";
                     }
-                };
-                HomeController.prototype.login = function () {
-                    var authentication_url = "http://staging.tangent.tngnt.co/api-token-auth", params = {
-                        username: angular.element("#username").val(),
-                        password: angular.element("#password").val()
-                    };
-                    tangent.test.core.EnvironmentService.DataService.post(authentication_url, params, this.authentication_callback, false, this.authentication_progress);
-                };
-                HomeController.prototype.authentication_callback = function (data, error) {
-                    tangent.test.core.Authentication = "Hello";
-                    this.is_authenticated();
-                    debugger;
-                };
-                HomeController.prototype.authentication_progress = function (e) {
-                    debugger;
                 };
                 HomeController.$inject = ["$scope", "$rootScope", "$element", tangent.test.services.EnvironmentService.SERVICENAME];
                 HomeController.CONTROLLERNAME = "HomeController";

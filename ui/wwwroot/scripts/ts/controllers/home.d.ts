@@ -1,7 +1,9 @@
 /// <reference types="angular" />
 declare namespace tangent.test.controllers {
-    interface ihomescope {
+    interface ihomescope extends angular.IScope {
         login_user(): void;
+        template: string;
+        class: string;
     }
     class HomeController {
         static $inject: Array<string>;
@@ -14,9 +16,6 @@ declare namespace tangent.test.controllers {
         /**
          * determines if the current session has been successfully authenticated
          */
-        private is_authenticated();
-        private login();
-        private authentication_callback(data, error);
-        private authentication_progress(e);
+        is_authenticated(): void;
     }
 }

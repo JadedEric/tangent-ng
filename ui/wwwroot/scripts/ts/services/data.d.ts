@@ -11,7 +11,7 @@ declare namespace tangent.test.services {
         /**
          * performs a standard GET request on a given URL
          */
-        get(url: string, params: any, callback: Function, cache: boolean, progress: Function): void;
+        get(url: string, token: string, callback: Function, cache: boolean, progress: Function): void;
         post(url: string, params: any, callback: Function, cache: boolean, progress: Function): void;
     }
 }

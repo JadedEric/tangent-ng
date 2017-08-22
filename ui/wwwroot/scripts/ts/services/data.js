@@ -25,14 +25,28 @@ var tangent;
                 /**
                  * performs a standard GET request on a given URL
                  */
-                DataService.prototype.get = function (url, params, callback, cache, progress) {
-                    jQuery.get(url, params).done(function () {
-                        callback;
+                DataService.prototype.get = function (url, token, callback, cache, progress) {
+                    jQuery.ajax({
+                        type: "GET",
+                        url: url,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("Authorization", "Token " + token);
+                        },
+                        async: true,
+                        crossDomain: true
+                    }).done(function (d, e) {
+                        callback(d, e);
                     });
                 };
                 DataService.prototype.post = function (url, params, callback, cache, progress) {
-                    jQuery.post(url, params).done(function () {
-                        callback;
+                    jQuery.ajax({
+                        type: "POST",
+                        url: url,
+                        data: params,
+                        async: true,
+                        crossDomain: true
+                    }).done(function (d, e) {
+                        callback(d, e);
                     });
                 };
                 return DataService;

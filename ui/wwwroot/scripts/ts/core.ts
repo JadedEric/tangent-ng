@@ -4,10 +4,15 @@
 namespace tangent.test.core {
     "use strict";
 
+    export interface itokenobject {
+        token: string;
+    }
+
     export let TangentApp: angular.IModule = angular.module("TangentApp", []);
     export let Authentication: string;
     export let CompileProvider: angular.ICompileProvider = null;
     export let EnvironmentService: tangent.test.services.EnvironmentService = null;
+    export let Me: tangent.test.controllers.iuserobject = null;
     
     TangentApp.config(($compileProvider: angular.ICompileProvider, $controllerProvider: angular.IControllerProvider) => {
         $controllerProvider.allowGlobals();
@@ -19,7 +24,8 @@ namespace tangent.test.core {
 
     // controller registration
     TangentApp.controller(tangent.test.controllers.HomeController.CONTROLLERNAME, tangent.test.controllers.HomeController);
-
+    TangentApp.controller(tangent.test.controllers.LoginController.CONTROLLERNAME, tangent.test.controllers.LoginController);
+    TangentApp.controller(tangent.test.controllers.IndexController.CONTROLLERNAME, tangent.test.controllers.IndexController);
 
     // bootstrap
     angular.bootstrap(document, ["TangentApp"]);
