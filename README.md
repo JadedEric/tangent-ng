@@ -33,6 +33,19 @@ The original requirements was to use **webpack** to boilerplate the AngularJS ap
 
 As part of the original requirements, using ES6, I also decided to build the application out using TypeScript, a superset of JavaScript, as this is something I am extremely familiar with. It also allows for some interesting development using AngularJS.
 
+The application has been developed using:
+
+- TypeScript (compled to JavaScript)
+- Twitter Bootstrap 3.2
+- NodeJS for package management
+- Visual Studio Code (Mac OSx)
+- HTML5
+
+Things I didn't get to, based on time constraints:
+
+- Unit Testing
+- Fulfledged responsive site (there are a few things needing improvement)
+
 # How to run
 
 > Windows
